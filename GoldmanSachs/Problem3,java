@@ -1,0 +1,24 @@
+//Math
+//Time Complexity =O(n)
+class Solution {
+    
+    public int countSubArrayProductLessThanK(long a[], long n, long k)
+    {
+        
+        long tmp=1;
+        int j=0;
+        int nn =(int)n;
+        int ans=0;
+        for(int i=0;i<nn;i++){
+            tmp*=a[i];
+            
+            while(tmp>=k && j<nn){
+                tmp/=a[j];
+                j++;
+            }
+            ans+=(i-j+1);
+        }
+        return ans;
+        
+    }
+}
